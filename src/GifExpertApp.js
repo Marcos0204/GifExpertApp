@@ -3,16 +3,20 @@ import AddCategory from './components/AddCategori'
 import GifsGrid from './components/GifsGrid'
 
 const GifExpertApp = () => {
-    const [category, setCategory] = useState('rick and morty')
+    const [categories, setcategories] = useState(['rick and morty'])
 
     return (
         <>
             <h2>GifExpertApp</h2> 
             <AddCategory
-                setCategory={setCategory}
+                setcategories={setcategories}
             />
             <hr/>
-            <GifsGrid  category={category} />
+            <ul>
+                {categories.map((item, index) => (
+                    <GifsGrid key={index} category={item} />
+                )) }
+            </ul>
         </>
     )
 }
