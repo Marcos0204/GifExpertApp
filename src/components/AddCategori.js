@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types';
 
-const AddCategori = () => {
+
+const AddCategory = ({setcategories}) => {
+    const [inputValue, setinputValue] = useState('')
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        if(inputValue.trim().length < 2) return;
+        setcategories((categories) => [ inputValue,...categories ])
+        setinputValue('')
+    }
+
     return (
-        <div>
+        <form onSubmit={handleSubmit}>
             <input
-                placeholder='Agregar'
+                placeholder='Busca tus Gifs'
+                value= {inputValue}
+                onChange={e => setinputValue(e.target.value)}
             />
-        </div>
+        </form>
     )
 }
-
-export default AddCategori
+AddCategory.propTypes = {
+    setcategories: PropTypes.func.isRequired
+  };
+export default AddCategory
