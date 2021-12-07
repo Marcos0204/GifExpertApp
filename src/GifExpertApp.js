@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 
 const GifExpertApp = () => {
     const [categories, setcategories] = useState(['One puch', 'Dragon ball', 'Naruto'])
+    const [categories, setcategories] = useState(['One puch', 'Dragon ball', 'Naruto'])
     const handleAdd = () =>{
         setcategories([
             ...categories, 'pockemon go!'
